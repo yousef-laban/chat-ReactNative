@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Entypo, AntDesign } from "@expo/vector-icons";
 
 // componenets
-import Home from "../components/Home";
 import Profile from "../components/profile/Profile";
 
 const Tab = createBottomTabNavigator();
@@ -12,6 +11,7 @@ const Tab = createBottomTabNavigator();
 export default function TabsNavigator() {
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -31,7 +31,6 @@ export default function TabsNavigator() {
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
