@@ -16,7 +16,7 @@ import {
 } from "native-base";
 import { SIGN_IN } from "../../Navigation/types";
 import SignIn from "./SignIn";
-// import { signup } from "../../store/actions/authActions";
+import { signup } from "../../store/actions/authActions";
 
 export default function SignUp({ navigation }) {
   const dispatch = useDispatch();
@@ -25,15 +25,24 @@ export default function SignUp({ navigation }) {
     username: "",
     password: "",
     email: "",
-    firstName: "",
-    lastName: "",
+    phoneNum: "",
   };
 
   const [user, setUser] = useState(newUser);
 
-  // const handelSubmit = () => {
-  //   dispatch(signup(user, navigation));
-  // };
+  const resetForm = () => {
+    setUser({
+      username: "",
+      password: "",
+      email: "",
+      phoneNum: "",
+    });
+  };
+
+  const handelSubmit = () => {
+    dispatch(signup(user, navigation));
+    resetForm();
+  };
 
   return (
     <>
@@ -51,7 +60,7 @@ export default function SignUp({ navigation }) {
               <FormControl.Label
                 _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
               >
-                User Name
+                User Name :{" "}
               </FormControl.Label>
               <Input
                 autoCapitalize="none"
@@ -85,28 +94,17 @@ export default function SignUp({ navigation }) {
               <FormControl.Label
                 _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
               >
-                First Name
+                Phone Num. :
               </FormControl.Label>
               <Input
                 autoCapitalize="none"
-                onChangeText={(firstName) => setUser({ ...user, firstName })}
-              />
-            </FormControl>
-            <FormControl mb={5}>
-              <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
-              >
-                Last Name
-              </FormControl.Label>
-              <Input
-                autoCapitalize="none"
-                onChangeText={(lastName) => setUser({ ...user, lastName })}
+                onChangeText={(phoneNum) => setUser({ ...user, phoneNum })}
               />
             </FormControl>
 
             <VStack space={2}>
               <Button
-                // onPress={handelSubmit}
+                onPress={handelSubmit}
                 colorScheme="emerald"
                 _text={{ color: "white" }}
               >

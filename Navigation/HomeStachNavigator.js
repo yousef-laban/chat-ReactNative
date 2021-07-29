@@ -7,6 +7,7 @@ import Home from "../components/Home";
 import SignIn from "../components/AuthComponent/SignIn";
 import SignUp from "../components/AuthComponent/SignUp";
 import TabsNavigator from "./TabsNavigator";
+import Verify from "../components/AuthComponent/Verify";
 
 const HomeStackNavigator = () => {
   const user = useSelector((state) => state.user.user);
@@ -25,6 +26,11 @@ const HomeStackNavigator = () => {
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen name="SignIn" component={SignIn} />
       <Screen name="SignUp" component={SignUp} />
+      <Screen
+        name="Verify"
+        component={Verify}
+        options={{ headerShown: false }}
+      />
 
       <Screen
         name="TabsNavigator"
