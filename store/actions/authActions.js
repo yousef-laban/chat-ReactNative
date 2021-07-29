@@ -12,7 +12,7 @@ export const signup = (userData, navigation) => async (dispatch) => {
     const res = await instance.post(`/signup`, userData);
 
     dispatch(setUser(res.data.token));
-    // navigation.navigate(CART_LIST);
+    navigation.navigate("Home");
   } catch (error) {
     console.log(error);
   }
@@ -68,4 +68,23 @@ const setUser = (token) => async (dispatch) => {
       payload: null,
     });
   }
+};
+
+export const verify = (user) => async (dispatch) => {
+  try {
+    const res = await instance.post("/verify", user);
+
+    dispatch(verifyToken(res.data.token));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const verifyToken = async (token) => {
+  await AsyncStorage.setItem("Token", token);
+
+  return {
+    type: actionType.VERIFY,
+    payload: decode(token),
+  };
 };

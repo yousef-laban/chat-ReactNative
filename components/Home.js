@@ -12,8 +12,8 @@ const Home = ({ navigation }) => {
   console.log(user);
 
   if (user) {
-    navigation.navigate("TabsNavigator");
-    console.log("hi");
+    if (user.verify === false) navigation.navigate("Verify");
+    else navigation.navigate("TabsNavigator");
   }
 
   return (
