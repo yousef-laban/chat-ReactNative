@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Entypo, AntDesign } from "@expo/vector-icons";
 
 // componenets
-import Profile from "../components/profile/Profile";
+import ProfilrStackNavigator from "./ProfilrStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +18,7 @@ export default function TabsNavigator() {
 
           if (route.name === "Home") {
             iconName = "home";
-          } else if (route.name === "Profile") {
+          } else if (route.name === "ProfilrStackNavigator") {
             iconName = "person-circle-outline";
           }
 
@@ -31,7 +31,10 @@ export default function TabsNavigator() {
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="ProfilrStackNavigator"
+        component={ProfilrStackNavigator}
+      />
     </Tab.Navigator>
   );
 }

@@ -18,6 +18,7 @@ import SignUp from "./SignUp";
 import { signin } from "../../store/actions/authActions";
 
 export default function SignIn({ navigation }) {
+  console.log("signin");
   const dispatch = useDispatch();
 
   const newUser = {
