@@ -1,13 +1,20 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
+import { Center, Spinner } from "native-base";
+
 import { useSelector } from "react-redux";
 
 import { TopStyling, Title, ImageBackground } from "../styles";
 
 const Home = ({ navigation }) => {
   const user = useSelector((state) => state.user.user);
+  console.log("Home");
+  console.log(user);
 
-  if (user) navigation.navigate("TabsNavigator");
+  if (user) {
+    navigation.navigate("TabsNavigator");
+    console.log("hi");
+  }
 
   return (
     <>

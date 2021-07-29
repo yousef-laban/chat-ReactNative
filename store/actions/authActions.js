@@ -32,7 +32,7 @@ export const signin = (userData, navigation) => {
 
 export const logout = (navigation) => async (dispatch) => {
   try {
-    dispatch(setUser());
+    dispatch(await setUser());
     navigation.navigate("Home");
   } catch (error) {
     console.log(error);
