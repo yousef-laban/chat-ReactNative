@@ -3,8 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Text, StyleSheet } from "react-native";
 
 // components
-import Profile from "../components/profile/Profile";
-import UpdateProfile from "../components/profile/updateProfile";
+import Profile from "../components/Profile/index";
+import UpdateProfile from "../components/Profile/updateProfile";
 
 const HomeStackNavigator = () => {
   const { Screen, Navigator } = createStackNavigator();
