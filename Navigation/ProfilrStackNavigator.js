@@ -6,6 +6,7 @@ import { Text, StyleSheet } from "react-native";
 import Profile from "../components/Profile/index";
 import UpdateProfile from "../components/Profile/updateProfile";
 
+// REVIEW: File name has a typo (Profile)
 const HomeStackNavigator = () => {
   const { Screen, Navigator } = createStackNavigator();
 

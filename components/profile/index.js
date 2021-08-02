@@ -7,6 +7,7 @@ import { logout } from "../../store/actions/authActions";
 
 import { TopStyling, Title, ImageBackground } from "../../styles";
 
+// |REVIEW: Why is this called Home?
 const Home = ({ navigation }) => {
   console.log("profile");
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Home = ({ navigation }) => {
 
   if (loading)
     return (
+      // REVIEW: Move this code into its own component
       <Center flex={1}>
         <Spinner color="blue" />
       </Center>
@@ -23,6 +25,7 @@ const Home = ({ navigation }) => {
 
   if (!user) return <></>;
 
+  // REVIEW: p? seriously? p?!!!!!!!!
   const wantedProfile = profiles.find((p) => +p.userId === user.id);
 
   const handelLogout = () => {

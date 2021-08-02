@@ -9,7 +9,10 @@ import SignUp from "../components/AuthComponent/SignUp";
 import TabsNavigator from "./TabsNavigator";
 import Verify from "../components/AuthComponent/Verify";
 
+// REVIEW: File namer has a typo (Stack)
+
 const HomeStackNavigator = () => {
+  // REVIEW: Remove unused code
   const user = useSelector((state) => state.user.user);
 
   const { Screen, Navigator } = createStackNavigator();

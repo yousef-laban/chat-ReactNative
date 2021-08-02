@@ -19,7 +19,9 @@ import {
   HStack,
 } from "native-base";
 import { Image, View, Platform } from "react-native";
+// REVIEW: Remove unused imports
 
+// REVIEW: Component file && folder MUST BE CAPITAL
 export default function UpdateProfile({ navigation }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);

@@ -8,12 +8,15 @@ import { TopStyling, Title, ImageBackground } from "../styles";
 
 const Home = ({ navigation }) => {
   const user = useSelector((state) => state.user.user);
+
   console.log("Home");
   console.log(user);
 
   if (user) {
+    // REVIEW: !user.verify
     if (user.verify === false) navigation.navigate("Verify");
     else navigation.navigate("TabsNavigator");
+    // navigation.navigate(!user.verify ? "" : "")
   }
 
   return (
