@@ -1,10 +1,11 @@
 import React from "react";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, Entypo, AntDesign } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 // componenets
 import ProfilrStackNavigator from "./ProfilrStackNavigator";
+import ChatStackNavigator from "./ChatStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,21 +17,22 @@ export default function TabsNavigator() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Home") {
-            iconName = "home";
-          } else if (route.name === "ProfilrStackNavigator") {
-            iconName = "person-circle-outline";
-          }
-
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
+          if (route.name === "ProfilrStackNavigator")
+            return <FontAwesome name="user-circle-o" size={30} color={color} />;
+          if (route.name === "ChatStackNavigator")
+            return <Ionicons name="chatbox-ellipses" size={30} color={color} />;
         },
       })}
       tabBarOptions={{
         activeTintColor: "blue",
-        inactiveTintColor: "gray",
+        inactiveTintColor: "black",
+        showLabel: false,
+        style: {
+          backgroundColor: "#DEEDF0",
+        },
       }}
     >
+      <Tab.Screen name="ChatStackNavigator" component={ChatStackNavigator} />
       <Tab.Screen
         name="ProfilrStackNavigator"
         component={ProfilrStackNavigator}

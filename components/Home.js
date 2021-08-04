@@ -7,15 +7,6 @@ import { useSelector } from "react-redux";
 import { TopStyling, Title, ImageBackground } from "../styles";
 
 const Home = ({ navigation }) => {
-  const user = useSelector((state) => state.user.user);
-  console.log("Home");
-  console.log(user);
-
-  if (user) {
-    if (user.verify === false) navigation.navigate("Verify");
-    else navigation.navigate("TabsNavigator");
-  }
-
   return (
     <>
       <TopStyling>
@@ -26,7 +17,11 @@ const Home = ({ navigation }) => {
         Sign IN
       </Text>
 
-      <ImageBackground source={require("../pic/logo.png")} />
+      <ImageBackground
+        source={{
+          uri: "https://www.shareicon.net/data/2015/08/10/83196_chat_1024x1024.png",
+        }}
+      />
     </>
   );
 };
@@ -36,7 +31,7 @@ export default Home;
 const styles = StyleSheet.create({
   Text2: {
     color: "#2f5d62",
-    backgroundColor: "#DFEEEA",
+    backgroundColor: "#EDF6E5",
     textAlign: "center",
     height: 50,
     borderRadius: 10,

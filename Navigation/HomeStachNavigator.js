@@ -19,24 +19,27 @@ const HomeStackNavigator = () => {
       screenOptions={{
         headerTransparent: true,
         cardStyle: {
-          backgroundColor: "#2f5d62",
+          backgroundColor: "#B5EAEA",
         },
       }}
     >
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
-      <Screen name="SignIn" component={SignIn} />
-      <Screen name="SignUp" component={SignUp} />
-      <Screen
-        name="Verify"
-        component={Verify}
-        options={{ headerShown: false }}
-      />
-
-      <Screen
-        name="TabsNavigator"
-        component={TabsNavigator}
-        options={{ headerShown: false }}
-      />
+      {!user ? (
+        <>
+          <Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Screen name="SignIn" component={SignIn} />
+          <Screen name="SignUp" component={SignUp} />
+        </>
+      ) : (
+        <Screen
+          name="TabsNavigator"
+          component={TabsNavigator}
+          options={{ headerShown: false }}
+        />
+      )}
     </Navigator>
   );
 };

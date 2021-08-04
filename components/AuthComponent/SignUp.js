@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { StyleSheet } from "react-native";
 
 import {
   NativeBaseProvider,
@@ -48,32 +49,34 @@ export default function SignUp({ navigation }) {
     <>
       <NativeBaseProvider>
         <Box marginTop="75px" flex={1} p={2} w="90%" mx="auto">
-          <Heading size="lg" color="#DFEEEA">
+          <Heading size="lg" color="black">
             Welcome
           </Heading>
-          <Heading color="#A7C4BC" size="xs">
+          <Heading color="grey" size="xs">
             Sign Up to continue!
           </Heading>
 
           <VStack space={2} mt={5}>
             <FormControl>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 User Name :{" "}
               </FormControl.Label>
               <Input
+                style={styles.input}
                 autoCapitalize="none"
                 onChangeText={(username) => setUser({ ...user, username })}
               />
             </FormControl>
             <FormControl>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 Password
               </FormControl.Label>
               <Input
+                style={styles.input}
                 type="password"
                 onChangeText={(password) => setUser({ ...user, password })}
               />
@@ -81,22 +84,24 @@ export default function SignUp({ navigation }) {
 
             <FormControl>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 E-mail
               </FormControl.Label>
               <Input
+                style={styles.input}
                 autoCapitalize="none"
                 onChangeText={(email) => setUser({ ...user, email })}
               />
             </FormControl>
             <FormControl>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 Phone Num. :
               </FormControl.Label>
               <Input
+                style={styles.input}
                 autoCapitalize="none"
                 onChangeText={(phoneNum) => setUser({ ...user, phoneNum })}
               />
@@ -111,20 +116,15 @@ export default function SignUp({ navigation }) {
                 Sign Up
               </Button>
             </VStack>
-            <HStack justifyContent="center">
-              <Text fontSize="sm" color="#DFEEEA" fontWeight={400}>
-                Already A User .
-              </Text>
-              <Link
-                _text={{ color: "emerald.500", bold: true, fontSize: "sm" }}
-                onPress={() => navigation.navigate(SignIn)}
-              >
-                Sign In
-              </Link>
-            </HStack>
           </VStack>
         </Box>
       </NativeBaseProvider>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    borderColor: "black",
+  },
+});

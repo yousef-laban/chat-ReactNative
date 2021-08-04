@@ -7,6 +7,20 @@ import instance from "./instance";
 import * as actionType from "./types";
 import { log } from "react-native-reanimated";
 
+export const fetchUsers = () => {
+  return async (dispatch) => {
+    try {
+      const res = await instance.get("/users");
+      dispatch({
+        type: actionType.FETCH_USERS,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
 export const signup = (userData, navigation) => async (dispatch) => {
   try {
     const res = await instance.post(`/signup`, userData);
@@ -23,7 +37,7 @@ export const signin = (userData, navigation) => {
     try {
       const res = await instance.post(`/signin`, userData);
       dispatch(setUser(res.data.token));
-      navigation.goBack();
+      navigation.navigation("TabsNavigator");
     } catch (error) {
       console.log(error);
     }
@@ -70,21 +84,21 @@ const setUser = (token) => async (dispatch) => {
   }
 };
 
-export const verify = (user) => async (dispatch) => {
-  try {
-    const res = await instance.post("/verify", user);
+// export const verify = (user) => async (dispatch) => {
+//   try {
+//     const res = await instance.post("/verify", user);
 
-    dispatch(verifyToken(res.data.token));
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     dispatch(verifyToken(res.data.token));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-const verifyToken = async (token) => {
-  await AsyncStorage.setItem("Token", token);
+// const verifyToken = async (token) => {
+//   await AsyncStorage.setItem("Token", token);
 
-  return {
-    type: actionType.VERIFY,
-    payload: decode(token),
-  };
-};
+//   return {
+//     type: actionType.VERIFY,
+//     payload: decode(token),
+//   };
+// };

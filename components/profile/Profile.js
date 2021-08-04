@@ -1,11 +1,13 @@
 import React from "react";
-import { Center, Spinner } from "native-base";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/actions/authActions";
 
 import { TopStyling, Title, ImageBackground } from "../../styles";
+
+//
+import SpinnerCom from "../Spinner";
 
 const Home = ({ navigation }) => {
   console.log("profile");
@@ -14,12 +16,7 @@ const Home = ({ navigation }) => {
   const profiles = useSelector((state) => state.profiles.profiles);
   const loading = useSelector((state) => state.profiles.loading);
 
-  if (loading)
-    return (
-      <Center flex={1}>
-        <Spinner color="blue" />
-      </Center>
-    );
+  if (loading) return <SpinnerCom />;
 
   if (!user) return <></>;
 
@@ -63,8 +60,8 @@ export default Home;
 
 const styles = StyleSheet.create({
   Text2: {
-    color: "#2f5d62",
-    backgroundColor: "#DFEEEA",
+    color: "black",
+    backgroundColor: "#EDF6E5",
     textAlign: "center",
     height: 50,
     borderRadius: 10,
@@ -76,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   header: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#B5EAEA",
     height: 200,
   },
   avatar: {
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#B5EAEA",
   },
 
   Text3: {

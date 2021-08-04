@@ -13,7 +13,7 @@ export const TopStyling = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: blue;
+  color: black;
   font-size: 38px;
   text-align: center;
   padding: 50px;

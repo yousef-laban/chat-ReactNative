@@ -133,13 +133,6 @@ export default function UpdateProfile({ navigation }) {
               >
                 Pick an image
               </Button>
-
-              {_profile.image && (
-                <Image
-                  source={{ uri: _profile.image }}
-                  style={{ width: 200, height: 200 }}
-                />
-              )}
             </FormControl>
 
             <VStack space={2}>

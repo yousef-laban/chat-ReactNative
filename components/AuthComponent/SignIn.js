@@ -14,6 +14,9 @@ import {
   Button,
   HStack,
 } from "native-base";
+
+import { StyleSheet } from "react-native";
+("react-nativ");
 import SignUp from "./SignUp";
 import { signin } from "../../store/actions/authActions";
 
@@ -43,32 +46,36 @@ export default function SignIn({ navigation }) {
     <>
       <NativeBaseProvider>
         <Box marginTop="150px" flex={1} p={2} w="90%" mx="auto">
-          <Heading size="lg" color="#DFEEEA">
+          <Heading size="lg" color="black">
             Welcome
           </Heading>
-          <Heading color="#A7C4BC" size="xs">
+          <Heading color="grey" size="xs">
             Sign in to continue!
           </Heading>
 
           <VStack space={2} mt={5}>
             <FormControl>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 User Name
               </FormControl.Label>
               <Input
+                style={styles.input}
+                color="black"
                 autoCapitalize="none"
                 onChangeText={(username) => setUser({ ...user, username })}
               />
             </FormControl>
             <FormControl mb={5}>
               <FormControl.Label
-                _text={{ color: "#DFEEEA", fontSize: "sm", fontWeight: 600 }}
+                _text={{ color: "black", fontSize: "sm", fontWeight: 600 }}
               >
                 Password
               </FormControl.Label>
               <Input
+                style={styles.input}
+                color="black"
                 type="password"
                 onChangeText={(password) => setUser({ ...user, password })}
               />
@@ -83,8 +90,8 @@ export default function SignIn({ navigation }) {
               </Button>
             </VStack>
             <HStack justifyContent="center">
-              <Text fontSize="sm" color="#DFEEEA" fontWeight={400}>
-                I'm a new user.
+              <Text fontSize="sm" color="black" fontWeight={400}>
+                new user?{" "}
               </Text>
               <Link
                 _text={{ color: "emerald.500", bold: true, fontSize: "sm" }}
@@ -99,3 +106,9 @@ export default function SignIn({ navigation }) {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    borderColor: "black",
+  },
+});
